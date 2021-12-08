@@ -2,20 +2,20 @@ import React,{useState} from "react";
 import {View, SafeAreaView, StyleSheet, TextInput, Text, TouchableOpacity} from 'react-native'
 
 const TouchablePractice = () => {
-    const [name, onChangeName] = useState("")
     const [email, onChangeEmail] = useState("")
+    const [password, onChangePassword] = useState("")
 
-    const checkInput = () => {
-        if (!name.trim()){
-            alert("Please Enter your name")
-            return
-        }
+    const showInput = () => {
         if (!email.trim()){
             alert("Please Enter your email")
             return
         }
+        if (!password.trim()){
+            alert("Please Enter your password")
+            return
+        }
 
-        alert("Success")
+        alert(`email: ${email}\npassword: ${password}`)
         return
     }
 
@@ -24,21 +24,22 @@ const TouchablePractice = () => {
             <View style={styles.container}>
                 <TextInput
                     style = {styles.textInputStyle}
-                    placeholder="Enter Your Name Here"
-                    placeholderTextColor = "#AAAAAA"
-                    underlineColorAndroid="transparent"
-                    onChangeText={onChangeName}
-                />
-                <TextInput
-                    style = {styles.textInputStyle}
-                    placeholder="Enter Your Email Here"
+                    placeholder="E-mail"
                     placeholderTextColor = "#AAAAAA"
                     underlineColorAndroid="transparent"
                     onChangeText={onChangeEmail}
                 />
+                <TextInput
+                    style = {styles.textInputStyle}
+                    placeholder="Password"
+                    placeholderTextColor = "#AAAAAA"
+                    underlineColorAndroid="transparent"
+                    onChangeText={onChangePassword}
+                />
                 <TouchableOpacity
                     style={styles.button}
                     activeOpacity = {0.5}
+                    onPress={showInput}
                 >
                     <Text style={{color:"#ffffff"}}>SUMMIT</Text> 
                 </TouchableOpacity>
