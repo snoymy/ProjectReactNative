@@ -1,10 +1,12 @@
 import React from 'react' 
-import {StyleSheet, View, Text} from 'react-native'
+import {StyleSheet, View, Text, Button} from 'react-native'
 
-const AboutScreen = () => {
+const AboutScreen = ({route}) => {
+    const {email} = route.params;
     return (
         <View style={styles.container}>
             <Text>เกี่ยวกับ</Text>
+            <Text>Email: {email}</Text>
         </View>
     )
 }
