@@ -1,30 +1,39 @@
-import React from 'react' 
-import {StyleSheet, View, Text, Button} from 'react-native'
+import React from 'react';
+import {Text, View, TouchableOpacity} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import Ionicons from "react-native-vector-icons/Ionicons"
+import styles from "../components/styles"
 
 const HomeScreen = ({navigation}) => {
     return (
-        <View style={styles.container}>
-            <Ionicons name='home' size={30} color='skyblue'/>
-            <Text>หน้าหลัก</Text>
-            <Button
-                title="Go to About"
-                onPress={() => navigation.navigate('About', {
-                    email: "bhunnathon@gmail.com"
-                }
-                )}
-            />
-        </View>
+      <SafeAreaView style={{flex: 1}}>
+      <View style={styles.container}>
+        <Text style={styles.textCenterStyle}>Home Screen</Text>
+
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.8}
+          onPress={() => {
+            navigation.navigate('Settings');
+          }}
+        >
+          <Text style={styles.buttonTextStyle}>Go to setting</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.8}
+          onPress={() => {
+            navigation.navigate('Detail');
+          }}
+        >
+          <Text style={styles.buttonTextStyle}>Open News Screen</Text>
+        </TouchableOpacity>
+
+      </View>
+      <Text style={styles.textBottomStyle}>www.tni.ac.th</Text>
+    </SafeAreaView>
     )
 }
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    }
-})
